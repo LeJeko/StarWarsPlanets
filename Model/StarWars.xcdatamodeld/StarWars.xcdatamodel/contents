@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Film" representedClassName="Film" syncable="YES" codeGenerationType="class">
+        <attribute name="character_urls" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="director" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="edited" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="episode_id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="opening_crawl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="planet_urls" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="producer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="release_date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="specie_urls" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="starship_urls" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vehicle_urls" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="characters" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="films" inverseEntity="Person" syncable="YES"/>
+        <relationship name="planets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Planet" inverseName="films" inverseEntity="Planet" syncable="YES"/>
+    </entity>
+    <entity name="Person" representedClassName="Person" syncable="YES" codeGenerationType="class">
+        <attribute name="birth_year" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="edited" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="eye_color" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="film_urls" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hair_color" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="homeworld_url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mass" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="skin_color" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="specie_urls" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="starship_urls" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="vehicles_url" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="films" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Film" inverseName="characters" inverseEntity="Film" syncable="YES"/>
+        <relationship name="homeworld" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Planet" inverseName="residents" inverseEntity="Planet" syncable="YES"/>
+    </entity>
+    <entity name="Planet" representedClassName="Planet" syncable="YES" codeGenerationType="class">
+        <attribute name="climate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="diameter" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="edited" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="film_urls" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="gravity" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orbital_period" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="population" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="resident_urls" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="rotation_period" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="surface_water" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="terrain" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="films" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Film" inverseName="planets" inverseEntity="Film" syncable="YES"/>
+        <relationship name="residents" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="homeworld" inverseEntity="Person" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Film" positionX="-18" positionY="162" width="128" height="270"/>
+        <element name="Person" positionX="-9" positionY="171" width="128" height="300"/>
+        <element name="Planet" positionX="0" positionY="180" width="128" height="270"/>
+    </elements>
+</model>
