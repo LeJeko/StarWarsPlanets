@@ -424,6 +424,20 @@ class DataStore {
         
     }
     
+    func deleteAllData(_ entity:String) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entity)
+        fetchRequest.returnsObjectsAsFaults = false
+        do {
+            let results = try persistentContainer.viewContext.fetch(fetchRequest)
+            for object in results {
+                guard let objectData = object as? NSManagedObject else {continue}
+                persistentContainer.viewContext.delete(objectData)
+            }
+        } catch let error {
+            print("Detele all data in \(entity) error :", error)
+        }
+    }
+    
     // fetchedResultsController
     lazy var fetchedResultsController: NSFetchedResultsController<Planet> = {
         

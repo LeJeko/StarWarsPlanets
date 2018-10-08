@@ -103,7 +103,14 @@
                             <outlet property="delegate" destination="kF2-4s-VRV" id="Fp4-rF-3cj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="StarWars Planets" id="83j-v8-QhL"/>
+                    <navigationItem key="navigationItem" title="StarWars Planets" id="83j-v8-QhL">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Den-Cv-Ue9">
+                            <color key="tintColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="reloadData:" destination="kF2-4s-VRV" id="qAr-Fh-qJc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3QS-20-c8R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

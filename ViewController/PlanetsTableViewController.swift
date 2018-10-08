@@ -108,7 +108,20 @@ class PlanetsTableViewController: UITableViewController, NSFetchedResultsControl
         }
         tableView.reloadData()
     }
+    
+    //--------------------
+    //MARK: - Actions
+    //--------------------
+    
+    ///flush data and reload from API
+    
+    @IBAction func reloadData(_ sender: UIBarButtonItem) {
         
+        self.store.deleteAllData("Planet")
+        self.store.loadDataForPlanets()
+        
+    }
+    
 }
 
 //--------------------
