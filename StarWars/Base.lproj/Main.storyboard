@@ -111,6 +111,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="refreshButton" destination="Den-Cv-Ue9" id="Rsz-To-fd7"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3QS-20-c8R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

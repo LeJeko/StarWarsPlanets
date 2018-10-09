@@ -39,7 +39,10 @@ class PlanetsTableViewController: UITableViewController, NSFetchedResultsControl
         tableView.delegate = self
 
         //Load data from SWAPI
-        store.loadDataForPlanets()
+        self.refreshButton.isEnabled = false
+        store.loadDataForPlanets {
+            self.refreshButton.isEnabled = true
+        }
 
         //Search Bar
         searchController.searchResultsUpdater = self
@@ -115,10 +118,15 @@ class PlanetsTableViewController: UITableViewController, NSFetchedResultsControl
     
     ///flush data and reload from API
     
+    @IBOutlet weak var refreshButton: UIBarButtonItem!
+    
     @IBAction func reloadData(_ sender: UIBarButtonItem) {
         
+        self.refreshButton.isEnabled = false
         self.store.deleteAllData("Planet")
-        self.store.loadDataForPlanets()
+        self.store.loadDataForPlanets {
+            self.refreshButton.isEnabled = true
+        }
         
     }
     

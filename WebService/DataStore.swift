@@ -344,6 +344,8 @@ class DataStore {
                     if let url = NextPageURL {
                         //make another request with the next page url
                         self.fetchAllPlanetsFromAPI(fromURL: url, completion: completion)
+                    } else {
+                        UserDefaults.standard.set(false, forKey: "requestInProgress")
                     }
                     completion(result)
                 }
@@ -407,11 +409,19 @@ class DataStore {
 
     // Helpers
     
-    func loadDataForPlanets() {
+    func loadDataForPlanets(completion: @escaping () -> Void) {
+
+        //ensure all changes are commited
+        try? self.persistentContainer.viewContext.save()
+        
+        // will be set to false later when no nextURL exist
+        UserDefaults.standard.set(true, forKey: "requestInProgress")
 
         self.fetchAllPlanetsFromAPI { (planetResult) in
             print("planets downloaded")
-            try? self.persistentContainer.viewContext.save()
+            if !UserDefaults.standard.bool(forKey: "requestInProgress") {
+                completion()
+            }
         }
 
         self.fetchAllPersonsFromAPI() { (personResult) in
