@@ -8,4 +8,5 @@ You can see image of a planet through Google images.
 
 ## How To Use
 Clone or download the repo and open it with Xcode, than just play it in the simulator.
+
 Or you can download a [release](https://github.com/LeJeko/StarWarsPlanets/releases) via TestFlight.
